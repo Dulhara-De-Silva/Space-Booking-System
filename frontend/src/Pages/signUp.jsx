@@ -23,16 +23,51 @@ function SignUp() {
     }));
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  
+async function handleSubmit(event) {
+  event.preventDefault();
 
-      if (formData.password !== formData.confirmPassword) {
-      toast.error("Passwords do not match!");
+  // Check whether the passwords match
+  if (formData.password !== formData.confirmPassword) {
+    toast.error("Passwords do not match!");
+    return;
+  }
+
+  try {
+    // Send the form data to the backend
+    const response = await fetch(
+      "http://localhost:5000/api/auth/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+
+    const data = await response.json();
+
+    // Handle errors returned by the backend
+    if (!response.ok) {
+      toast.error(data.message || "Registration failed");
       return;
     }
 
-    toast.success("Form validated successfully!");
+    // Handle successful registration
+    toast.success(data.message || "Account created successfully!");
+
+    // Navigate to the Sign In page
+    navigate("/signin");
+  } catch (error) {
+    console.error("Signup error:", error);
+
+    toast.error(
+      "Unable to connect to the server. Please try again."
+    );
   }
+}
+
 
   return (
     <main className="signup-page">

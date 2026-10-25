@@ -419,3 +419,156 @@
         font-size: 25px;
     }
 }
+
+
+/* =========================================
+   FIT SIGN UP PAGE TO DESKTOP VIEWPORT
+========================================= */
+
+@media (min-width: 651px) {
+    .signup-page {
+        height: 100vh;
+        min-height: 650px;
+        overflow-y: auto;
+    }
+
+    .signup-visual {
+        height: 100%;
+        min-height: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .signup-visual-content {
+        margin-bottom: 0;
+    }
+
+    .signup-visual-content h1 {
+        font-size: clamp(32px, 3.2vw, 46px);
+        line-height: 1.12;
+        margin-bottom: 14px;
+    }
+
+    .signup-tagline {
+        margin-bottom: 15px;
+    }
+
+    .signup-visual-content p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .signup-image-footer {
+        margin-top: 22px;
+    }
+
+    .signup-form-section {
+        min-height: 0;
+        height: 100%;
+        padding: 82px 32px 20px;
+    }
+
+    .signup-brand {
+        top: 18px;
+        left: 28px;
+    }
+
+    .signup-back-button {
+        top: 18px;
+        right: 24px;
+        padding: 8px 11px;
+    }
+
+    .signup-form-wrapper {
+        max-width: 390px;
+        margin: auto;
+    }
+
+    .signup-heading {
+        margin-bottom: 18px;
+    }
+
+    .signup-eyebrow {
+        margin-bottom: 7px;
+    }
+
+    .signup-heading h2 {
+        font-size: clamp(25px, 2.2vw, 30px);
+        margin-bottom: 6px;
+    }
+
+    .signup-heading p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .signup-form {
+        gap: 10px;
+    }
+
+    .signup-field {
+        gap: 5px;
+    }
+
+    .signup-field label {
+        font-size: 12px;
+    }
+
+    .signup-field input {
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .signup-submit-button {
+        min-height: 43px;
+        margin-top: 2px;
+        padding: 10px 16px;
+    }
+
+    .signup-divider {
+        gap: 12px;
+        margin: 15px 0 11px;
+    }
+
+    .signup-login-text {
+        font-size: 12px;
+    }
+
+    .signup-terms {
+        margin-top: 12px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+}
+
+/* Short desktop and laptop screens */
+@media (min-width: 651px) and (max-height: 750px) {
+    .signup-form-section {
+        padding-top: 70px;
+        padding-bottom: 10px;
+    }
+
+    .signup-form-wrapper {
+        padding: 5px 0;
+    }
+
+    .signup-heading {
+        margin-bottom: 12px;
+    }
+
+    .signup-form {
+        gap: 8px;
+    }
+
+    .signup-field input {
+        height: 36px;
+    }
+
+    .signup-divider {
+        margin: 10px 0 8px;
+    }
+
+    .signup-terms {
+        margin-top: 8px;
+    }
+}
