@@ -1,4 +1,4 @@
-const { signupUser } = require("../services/authService");
+const { signupUser, signinUser } = require("../services/authService");
 
 async function signup(req, res, next) {
     try {
@@ -15,4 +15,35 @@ async function signup(req, res, next) {
     }
 }
 
-module.exports = { signup };
+// Sign in an existing user
+async function signin(req, res, next) {
+    try {
+        const { email, password } = req.body;
+
+        if (
+            typeof email !== "string" ||
+            typeof password !== "string" ||
+            !email.trim() ||
+            !password
+        ) {
+            return res.status(400).json({
+                message: "Email and password are required"
+            });
+        }
+
+        const user = await signinUser(email, password);
+
+        return res.status(200).json({
+            message: "Sign in successful",
+            user
+        });
+    } catch (error) {
+        next(error);
+    }
+}
+
+module.exports = {
+    signup,
+    signin
+};
+

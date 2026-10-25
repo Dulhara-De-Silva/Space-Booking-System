@@ -27,4 +27,34 @@ async function signupUser(fullName, email, password) {
     };
 }
 
-module.exports = { signupUser };
+async function signinUser(email, password) {
+    const user = await userRepository.findByEmail(
+        email.trim().toLowerCase()
+    );
+
+    if (!user) {
+        const error = new Error("Invalid email or password");
+        error.statusCode = 401;
+        throw error;
+    }
+
+    const passwordMatches = await bcrypt.compare(
+        password,
+        user.password
+    );
+
+    if (!passwordMatches) {
+        const error = new Error("Invalid email or password");
+        error.statusCode = 401;
+        throw error;
+    }
+
+    return {
+        userId: user.id,
+        fullName: user.full_name,
+        email: user.email,
+        role: user.role
+    };
+}
+
+module.exports = { signupUser, signinUser };

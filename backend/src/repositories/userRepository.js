@@ -4,7 +4,7 @@ async function findByEmail(email) {
     const connection = getConnection();
 
     const [rows] = await connection.execute(
-        "SELECT id, role FROM users WHERE email = ?",
+        "SELECT id, full_name, email, password, role FROM users WHERE email = ?",
         [email]
     );
 

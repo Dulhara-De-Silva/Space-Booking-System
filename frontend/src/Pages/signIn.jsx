@@ -12,6 +12,9 @@ function SignIn() {
     password: "",
   });
 
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   function handleChange(event) {
     const { name, value } = event.target;
 
@@ -19,14 +22,52 @@ function SignIn() {
       ...previousData,
       [name]: value,
     }));
+
+    setErrorMessage("");
+
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    alert(
-      "Sign In form submitted! Backend authentication will be added later."
-    );
+    setErrorMessage("");
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/auth/signin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: formData.email.trim().toLowerCase(),
+            password: formData.password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setErrorMessage(data.message || "Sign in failed.");
+        return;
+      }
+
+      if (data.user.role === "admin") {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/user/dashboard");
+      }
+    } catch (error) {
+      console.error("Sign in error:", error);
+      setErrorMessage(
+        "Unable to connect to the server. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
