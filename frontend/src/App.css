@@ -8,6 +8,9 @@
 /* Navigation bar */
 .navbar {
   height: 88px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   padding: 0 7%;
   display: flex;
   align-items: center;

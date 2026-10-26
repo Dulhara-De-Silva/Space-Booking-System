@@ -71,7 +71,7 @@ function Welcome() {
         },
         {
             image: "/Images/UOK location.png",
-            alt: "UNO Innovation Hub",
+            alt: "UOK Innovation Hub",
             title: "UOK Innovation Hub",
             description:
                 "The University of Kelaniya's Innovation Hub is a dynamic space within the Faculty of Computing and Technology, designed to foster creativity and entrepreneurship. It features modern coworking and incubator facilities that support emerging startups and facilitate research and development. This collaborative environment encourages interdisciplinary teamwork and nurtures a culture of innovation, making it an ideal setting for aspiring technopreneurs in Sri Lanka.",
