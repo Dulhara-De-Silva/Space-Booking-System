@@ -95,7 +95,7 @@ function Welcome() {
                     aria-label="Go to welcome page"
                 >
                     <img
-                        src="/images/logo.png"
+                        src="/Images/logo.png"
                         alt="Trace Spaces logo"
                         className="logo"
                     />

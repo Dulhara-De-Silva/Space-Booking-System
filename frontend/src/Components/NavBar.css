@@ -1,0 +1,187 @@
+
+/* Top Navigation Bar */
+
+.top-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    min-height: 78px;
+    padding: 0 40px;
+    background: #ffffff;
+    border-bottom: 1px solid #eee8f1;
+    box-shadow: 0 3px 14px rgba(65, 4, 69, 0.05);
+}
+
+/* Brand */
+
+.top-navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+    color: #410445;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.top-navbar-brand i {
+    color: #650b69;
+    font-size: 29px;
+}
+
+/* Navigation Links */
+
+.top-navbar-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.top-navbar-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 14px;
+    border-radius: 9px;
+    color: #625668;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.top-navbar-link i {
+    font-size: 17px;
+}
+
+.top-navbar-link:hover,
+.top-navbar-link.active {
+    background: #f5eafa;
+    color: #410445;
+}
+
+/* Account */
+
+.top-navbar-account {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    color: #410445;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.top-navbar-account i {
+    font-size: 28px;
+}
+
+.top-navbar-account:hover {
+    color: #650b69;
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+    .top-navbar {
+        gap: 14px;
+        padding: 0 22px;
+    }
+
+    .top-navbar-brand {
+        font-size: 16px;
+    }
+
+    .top-navbar-menu {
+        gap: 2px;
+    }
+
+    .top-navbar-link {
+        gap: 6px;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .top-navbar-account span {
+        display: none;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+    .top-navbar {
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 15px;
+    }
+
+    .top-navbar-brand {
+        font-size: 16px;
+        gap: 8px;
+    }
+
+    .top-navbar-brand i {
+        font-size: 25px;
+    }
+
+    .top-navbar-account span {
+        display: inline;
+    }
+
+    .top-navbar-account {
+        font-size: 12px;
+    }
+
+    .top-navbar-account i {
+        font-size: 23px;
+    }
+
+    .top-navbar-menu {
+        order: 3;
+        justify-content: flex-start;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .top-navbar-link {
+        gap: 7px;
+        padding: 10px;
+    }
+
+    .top-navbar-link i {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .top-navbar-brand {
+        font-size: 14px;
+        gap: 7px;
+    }
+
+    .top-navbar-account span {
+        display: none;
+    }
+
+    .top-navbar-link {
+        gap: 5px;
+        padding: 9px 8px;
+        font-size: 11px;
+    }
+}

@@ -368,6 +368,19 @@
     line-height: 1.8;
 }
 
+
+.signin-error-message {
+  color: #b42318;
+  background-color: #fef3f2;
+  border: 1px solid #fecdca;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
 /* RESPONSIVE DESIGN */
 
 @media (max-width: 900px) {

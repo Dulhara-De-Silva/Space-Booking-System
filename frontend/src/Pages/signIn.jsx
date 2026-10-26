@@ -50,10 +50,17 @@ function SignIn() {
 
       const data = await response.json();
 
-      if (!response.ok) {
-        setErrorMessage(data.message || "Sign in failed.");
-        return;
-      }
+    if (!response.ok) {
+      setErrorMessage(
+        data.message || "Incorrect email or password. Please try again."
+      );
+      return;
+    }
+
+    if (!data.user) {
+      setErrorMessage("Invalid response from the server. Please try again.");
+      return;
+    }
 
       if (data.user.role === "admin") {
         navigate("/admin/dashboard");
@@ -141,6 +148,11 @@ function SignIn() {
           </div>
 
           <form className="signin-form" onSubmit={handleSubmit}>
+            {errorMessage && (
+              <div className="signin-error-message" role="alert">
+                {errorMessage}
+              </div>
+            )}
             <div className="signin-field">
               <label htmlFor="signin-email">Email address</label>
 
@@ -183,8 +195,13 @@ function SignIn() {
               </div>
             </div>
 
-            <button type="submit" className="signin-submit-button">
-              Sign In <span aria-hidden="true">→</span>
+            <button
+              type="submit"
+              className="signin-submit-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Signing in..." : "Sign In"}
+              {!isSubmitting && <span aria-hidden="true"> →</span>}
             </button>
           </form>
 
